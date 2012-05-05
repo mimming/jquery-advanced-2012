@@ -84,3 +84,11 @@ thead {
   height: 100px;
   float: left;
 }
+
+form label {
+  display: block;
+}
+
+.highlight {
+  background-color: #fbff14;
+}

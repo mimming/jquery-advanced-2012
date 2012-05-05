@@ -12,13 +12,17 @@
     science. Art gone wrong makes a mess, but science gone wrong may cause a
     disaster."/>
   <link href="https://plus.google.com/116852994107721644038" rel="publisher" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('img[alt^=awesome]').addClass("highlight");
+      $('img').toggleClass("highlight");
+    });
+  </script>
 </head>
 <body>
 <header class="blog-header">
-  <div class="header-badge">
-    <g:plus href="https://plus.google.com/116852994107721644038"
-            rel="publisher" width="170" height="69" theme="light"></g:plus>
-  </div>
+  <div class="header-badge"></div>
   <a href="index.html"><img id="blog-logo" src="images/logo.png" /></a>
   <h1>Baking Disasters</h1>
   <p>Because sometimes molecular gastronomy explodes.</p>
@@ -26,7 +30,7 @@
 <section class="content">
   <section class="post-summary recipe" id="macaron">
     <header><h2>Macaron</h2></header>
-    <img src="images/macaron.png">
+    <img src="images/macaron.png" alt="full of sugar and egg">
     <p>Few baked goods are as prone to explosions as the delicious and delicate
     French macaron. There's something about a hard outer shell attempting to hold
     back the pressure of expanding almond-flour-goo that's reminiscent of a
@@ -34,7 +38,7 @@
   </section>
   <section class="post-summary recipe new-recipe" id="doom-bread">
     <header><h2>Doom Bread</h2></header>
-    <img src="images/doom-bread.png">
+    <img src="images/doom-bread.png" alt="awesomely bad for you bread">
     <p>Is it a bread or is it a roll? Within this layery monstrosity is the
       essence of fatty deliciousness. Doom Bread combines bacon, cheese and vast
       quantities of butter into a single object, which amazingly fits in the
@@ -83,6 +87,7 @@
       <li>unordered 1</li>
       <li>unordered 2</li>
       <li>unordered 3</li>
+      <li>unordered 4</li>
     </ul>
   </div>
   <span style="clear: both;">
@@ -94,6 +99,17 @@
       <li>Right list item 5</li>
     </ol>
   </span>
+</section>
+<section class="content">
+  <h2>Form</h2>
+  <form method="get">
+    <label>Text Field <input type="text" name="text-field"/></label>
+    <label>Text Area <textarea name="textarea"></textarea></label>
+    <label>Submit <input type="submit"/></label>
+  </form>
+  <h3>Not in the form</h3>
+  <label>A button that does nothing <button>Press me!</button></label><br />
+  <label>Lonely text field <input type="text" name="lonely-text-field" /></label>
 </section>
 <footer>
   By <a href="http://plus.google.com/102817283354809142195">Baking Disasters</a>
