@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .on {
+      background-color: yellow;
+    }
+    .off {
+      background-color: green;
+    }
+    #game td {
+      height: 100px;
+      width: 100px;
+    }
+  </style>
+  <script src="./jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#game td").click(function(){
+        // Toggle this element
+        $(this).toggleClass("on off");
+
+        // find siblings and toggle them
+        // to the left
+        $(this).prev().toggleClass("on off");
+        // to the right
+        $(this).next().toggleClass("on off");
+        var col = $(this).index();
+        // above
+        $(this).parent().prev().children().eq(col).toggleClass("on off");
+        // below
+        $(this).parent().next().children().eq(col).toggleClass("on off");
+
+        // determine if the game is over
+        var on = $("#game td").hasClass("on");
+        var off = $("#game td").hasClass("off");
+        if((on || off) && !(on && off)) {
+          alert("You win!");
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+<table id="game">
+  <tr>
+    <td class="on"></td>
+    <td class="off"></td>
+    <td class="on"></td>
+  </tr>
+  <tr>
+    <td class="off"></td>
+    <td class="off"></td>
+    <td class="off"></td>
+  </tr>
+  <tr>
+    <td class="on"></td>
+    <td class="off"></td>
+    <td class="on"></td>
+  </tr>
+</table>
+</body>
+</html>
