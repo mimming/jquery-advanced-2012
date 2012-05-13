@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .gallery ul {
+      list-style:  none;
+      padding: 0;
+      margin: 0;
+    }
+    .gallery li {
+      list-style:  none;
+      float: left;
+      padding: 10px;
+      margin: 10px;
+    }
+    .gallery img, .gallery2 img {
+      height: 200px;
+      width: 200px;
+    }
+    .gallery, .gallery2 {
+      width: 1000px;
+    }
+  </style>
+  <script src="./jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#dostuff').click(function(){
+        // an example of an XSS being avoided =)
+        $(".gallery").text("\<script>alert('hi');");
+      });
+      $('#dohtml').click(function(){
+        $(".gallery").html("<b>bold text</b>");
+      });
+
+      // adding the conut of images to our header
+      var imagesCount = $(".gallery img").length;
+      $('#imagecount').html(imagesCount);
+
+//      //append another image to the list
+//      $('.gallery').append('<li><img src="images/derby_08.jpg"/></li>');
+
+      // add a caption to the photos
+      //$('.gallery li').append("<b>left:</b> a picture");
+
+      //build the whole thing from a list of file names
+      $(".gallery2").each(function() {
+        var files = ["images/derby_01.jpg", "images/derby_02.jpg"];
+        for(var i in files) {
+          $(this).append('<img src="'+files[i]+'"/>');
+        }
+        $(".gallery2 img").wrapAll("<ul />").wrap("<li />");
+      });
+
+      //copy the gallery2 images to gallery
+      $(".gallery2 img").clone().appendTo($(".gallery ul").wrap("<li />"));
+
+      //move the gallery2 images to gallery
+//      $(".gallery2 img").appendTo($(".gallery ul").wrap("<li />"));
+    });
+  </script>
+</head>
+<body>
+  <button id="dostuff">do xss</button>
+  <button id="dohtml">do html</button>
+
+  <div class="gallery2">
+    <h2>My top gallery</h2>
+  </div>
+
+  <div class="gallery">
+    <h2>My awesome gallery has <span id="imagecount"></span> images</h2>
+    <ul>
+      <li><img src="images/derby_01.jpg"/></li>
+      <li><img src="images/derby_02.jpg"/></li>
+      <li><img src="images/derby_03.jpg"/></li>
+      <li><img src="images/derby_04.jpg"/></li>
+      <li><img src="images/derby_05.jpg"/></li>
+      <li><img src="images/derby_06.jpg"/></li>
+      <li><img src="images/derby_07.jpg"/></li>
+    </ul>
+  </div>
+</body>
+</html>

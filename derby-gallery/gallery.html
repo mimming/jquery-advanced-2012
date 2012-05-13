@@ -14,31 +14,51 @@
       padding: 10px;
       margin: 10px;
     }
-    .gallery img {
+    .gallery img, .gallery2 img {
       height: 200px;
       width: 200px;
     }
-    .gallery {
+    .gallery, .gallery2 {
       width: 1000px;
     }
+    .deleteIcon {
+      background-color: hsla(0, 0%, 0%, 0.2);
+      border-radius: 5px;
+      height: 20px;
+      width: 20px;
+      margin-top: -20px;
+    }
   </style>
+  <link type="text/css" rel="stylesheet"
+        href="jquery-ui-1.8.20.custom/css/smoothness/jquery-ui-1.8.20.custom.css" />
   <script src="./jquery.min.js"></script>
+  <script src="./jquery-ui-1.8.20.custom/js/jquery-ui-1.8.20.custom.min.js"></script>
   <script>
     $(document).ready(function() {
-      console.log("hello world");
+      var deleteIcon ='<div class="deleteIcon">X</div>';
+      // add the icon to each photo
+      $(".gallery img").before(deleteIcon);
+      // add a callback to do the deletion to each of the icons
+      $(".gallery li .deleteIcon").click(function() {
+        $(this).parent().hide("slide");
+      });
     });
   </script>
 </head>
 <body>
-  <ul class="gallery">
-    <li><img src="images/derby_01.jpg"/></li>
-    <li><img src="images/derby_02.jpg"/></li>
-    <li><img src="images/derby_03.jpg"/></li>
-    <li><img src="images/derby_04.jpg"/></li>
-    <li><img src="images/derby_05.jpg"/></li>
-    <li><img src="images/derby_06.jpg"/></li>
-    <li><img src="images/derby_07.jpg"/></li>
-    <li><img src="images/derby_08.jpg"/></li>
-  </ul>
+
+
+  <div class="gallery">
+    <h2>My awesome gallery has <span id="imagecount"></span> images</h2>
+    <ul>
+      <li><img src="images/derby_01.jpg"/></li>
+      <li><img src="images/derby_02.jpg"/></li>
+      <li><img src="images/derby_03.jpg"/></li>
+      <li><img src="images/derby_04.jpg"/></li>
+      <li><img src="images/derby_05.jpg"/></li>
+      <li><img src="images/derby_06.jpg"/></li>
+      <li><img src="images/derby_07.jpg"/></li>
+    </ul>
+  </div>
 </body>
 </html>

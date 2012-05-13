@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .gallery ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .gallery li {
+      list-style: none;
+      float: left;
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid black;
+    }
+
+    .gallery img {
+      height: 200px;
+      width: 200px;
+    }
+
+    .gallery {
+      width: 1000px;
+    }
+  </style>
+  <link type="text/css" rel="stylesheet"
+        href="jquery-ui-1.8.20.custom/css/smoothness/jquery-ui-1.8.20.custom.css"/>
+  <script src="./jquery.min.js"></script>
+  <script src="./jquery-ui-1.8.20.custom/js/jquery-ui-1.8.20.custom.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // add a click handler to all of the images
+      var showFunction = function () {
+        $(this).children("img").show("drop");
+      }
+
+      var hideFunction = function () {
+        var $myImage = $(this).children("img");
+        var $nextImage = $(this).next().children("img");
+
+        $myImage.hide("puff", {}, 'fast', function() {
+          $nextImage.hide("slide", {}, 'slow');
+        });
+
+      }
+
+      $(".gallery li").toggle(hideFunction, showFunction);
+      // upon the click, hide the image that was clicked on
+    });
+  </script>
+</head>
+<body>
+<ul class="gallery">
+  <li><img src="images/derby_01.jpg"/></li>
+  <li><img src="images/derby_02.jpg"/></li>
+  <li><img src="images/derby_03.jpg"/></li>
+  <li><img src="images/derby_04.jpg"/></li>
+  <li><img src="images/derby_05.jpg"/></li>
+  <li><img src="images/derby_06.jpg"/></li>
+  <li><img src="images/derby_07.jpg"/></li>
+  <li><img src="images/derby_08.jpg"/></li>
+</ul>
+</body>
+</html>

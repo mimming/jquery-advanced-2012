@@ -5,9 +5,11 @@
     .on {
       background-color: yellow;
     }
+
     .off {
       background-color: green;
     }
+
     #game td {
       height: 100px;
       width: 100px;
@@ -15,8 +17,8 @@
   </style>
   <script src="./jquery.min.js"></script>
   <script>
-    $(document).ready(function() {
-      $("#game td").click(function(){
+    $(document).ready(function () {  //jen@mimming.com
+      $("#game td").click(function () {
         // Toggle this element
         $(this).toggleClass("on off");
 
@@ -34,7 +36,7 @@
         // determine if the game is over
         var on = $("#game td").hasClass("on");
         var off = $("#game td").hasClass("off");
-        if((on || off) && !(on && off)) {
+        if (!(on && off)) {
           alert("You win!");
         }
       });

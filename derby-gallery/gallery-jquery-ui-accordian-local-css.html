@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .gallery img {
+      height: 200px;
+      width: 200px;
+    }
+    .gallery {
+      width: 1000px;
+    }
+  </style>
+  <link type="text/css" rel="stylesheet"
+        href="jquery-ui-1.8.20.custom/css/smoothness/jquery-ui-1.8.20.custom.css"/>
+  <script src="./jquery.min.js"></script>
+  <script src="./jquery-ui-1.8.20.custom/js/jquery-ui-1.8.20.custom.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#accordion").accordion({
+        collapsible:true,
+        animated: 'bounceslide',
+        active: 2 });
+    });
+  </script>
+  <style>
+    #gallery-body .ui-accordion-header {
+      font-weight: bold;
+      color: purple;
+    }
+  </style>
+
+</head>
+<body id="gallery-body">
+
+<h1>My Gallery</h1>
+
+<div style="width: 800px;" id="accordion" class="gallery">
+  <h3>Image 1</h3>
+  <div><img src="images/derby_01.jpg"/></div>
+  <h3>Image 2</h3>
+  <div><img src="images/derby_02.jpg"/></div>
+  <h3>Image 3</h3>
+  <div><img src="images/derby_03.jpg"/></div>
+  <h3>Image 4</h3>
+  <div><img src="images/derby_04.jpg"/></div>
+</div>
+</body>
+</html>
