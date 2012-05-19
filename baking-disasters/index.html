@@ -12,10 +12,32 @@
     science. Art gone wrong makes a mess, but science gone wrong may cause a
     disaster."/>
   <link href="https://plus.google.com/116852994107721644038" rel="publisher" />
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="./script/jquery-1.7.2.min.js"></script>
+  <script src="./jquery-ui-1.8.20.custom/js/jquery-ui-1.8.20.custom.min.js"></script>
+
+  <script src="./jquery.jcarousel.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./skins/tango/skin.css" />
+
   <script>
     $(document).ready(function(){
-      console.log("Hello world!");
+//      $("input[type=text]").autocomplete({
+//        source: [
+//          "ActionScript",
+//          "AppleScript",
+//          "Asp",
+//          "BASIC",
+//          "Ruby",
+//          "Scala",
+//          "Scheme"
+//        ]
+//      });
+//      $('ul,ol').sortable(
+//          {opacity: 0.2,
+//            stop:function(event){
+//              // do cool stuff now that we're done sorting, like AJAX
+//            }
+//      }).disableSelection();
+      $('#mycarousel').jcarousel();
     });
   </script>
 </head>
@@ -26,6 +48,20 @@
   <h1>Baking Disasters</h1>
   <p>Because sometimes molecular gastronomy explodes.</p>
 </header>
+<section class="content">
+  <ul id="mycarousel" class="jcarousel-skin-tango">
+    <li>hello</li>
+    <li>goodbye</li>
+    <li>moo</li>
+    <li>hello</li>
+    <li>goodbye</li>
+    <li>moo</li>
+    <li>hello</li>
+    <li>goodbye</li>
+    <li>moo</li>
+
+</ul>
+</section>
 <section class="content">
   <section class="post-summary recipe" id="macaron">
     <header><h2>Macaron</h2></header>
@@ -73,7 +109,6 @@
         <td>Cell 14</td>
         <td>Cell 15</td>
       </tr>
-    </body>
   </table>
 </section>
 <section class="content lists">

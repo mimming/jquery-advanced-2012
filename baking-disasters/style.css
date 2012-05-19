@@ -92,3 +92,15 @@ form label {
 .highlight {
   background-color: #fbff14;
 }
+
+.warning {
+  background-color: orange;
+}
+
+.ohnoes {
+  background-color: #F00;
+}
+
+.narrow {
+  width: 100px;
+}
