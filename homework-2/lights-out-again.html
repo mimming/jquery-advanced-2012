@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .on {
+      background-color: yellow;
+    }
+
+    .off {
+      background-color: green;
+    }
+
+    #game td {
+      height: 50px;
+      width: 50px;
+    }
+  </style>
+  <link type="text/css" rel="stylesheet"
+        href="jquery-ui-1.8.20.custom/css/smoothness/jquery-ui-1.8.20.custom.css"/>
+  <script src="./jquery.min.js"></script>
+  <script src="./jquery-ui-1.8.20.custom/js/jquery-ui-1.8.20.custom.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#game td").click(function () {
+        // Toggle this element
+        $(this).toggleClass("on off");
+
+        // find siblings and toggle them
+        // to the left
+        $(this).prev().toggleClass("on off");
+        // to the right
+        $(this).next().toggleClass("on off");
+        var col = $(this).index();
+        // above
+        $(this).parent().prev().children().eq(col).toggleClass("on off");
+        // below
+        $(this).parent().next().children().eq(col).toggleClass("on off");
+
+        // determine if the game is over
+        var on = $("#game td").hasClass("on");
+        var off = $("#game td").hasClass("off");
+        if ((on || off) && !(on && off)) {
+          alert("You win!");
+        }
+      });
+      $("#slider").slider({ value:3, max:10, min:1,
+        stop:function (event, ui) {
+          console.log(ui.value);
+          // get current size
+          $("#game").
+          // add cells to each row as necessary (in off state)
+          // add new rows
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+<div id="slider" style="width: 500px;"></div>
+<table id="game">
+  <tr>
+    <td class="on"></td>
+    <td class="off"></td>
+    <td class="on"></td>
+  </tr>
+  <tr>
+    <td class="off"></td>
+    <td class="off"></td>
+    <td class="off"></td>
+  </tr>
+  <tr>
+    <td class="on"></td>
+    <td class="off"></td>
+    <td class="on"></td>
+  </tr>
+</table>
+</body>
+</html>
