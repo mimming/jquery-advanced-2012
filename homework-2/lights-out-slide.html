@@ -77,19 +77,19 @@
             $("#game td").unbind("click").click(gameClickFunction);
 
             // reveal
-            $(".hidden").fadeIn(500);
+            $(".hidden").slideDown(500);
           } else if (newSize < currentSize) {
             var toRemove = currentSize - newSize;
             //remove cols
             $("#game tr").each(function() {
               $(this).children().slice(newSize).fadeOut(500, function() {
                 $(this).remove();
+                //remove rows
+                $("#game tbody").children().slice(newSize).children()
+                        .slideUp(500, function() {
+                  $(this).parent().remove();
+                });
               });
-            });
-            //remove rows
-            $("#game tbody").children().slice(newSize).children()
-                    .fadeOut(500, function() {
-              $(this).parent().remove();
             });
           }
         }

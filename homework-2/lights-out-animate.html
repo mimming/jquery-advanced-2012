@@ -11,7 +11,7 @@
     }
 
     .hidden {
-      display: none;
+      width: 0;
     }
     #game td {
       height: 50px;
@@ -77,19 +77,20 @@
             $("#game td").unbind("click").click(gameClickFunction);
 
             // reveal
-            $(".hidden").fadeIn(500);
+            $(".hidden").animate({width:50}, 500);
           } else if (newSize < currentSize) {
             var toRemove = currentSize - newSize;
             //remove cols
             $("#game tr").each(function() {
-              $(this).children().slice(newSize).fadeOut(500, function() {
+              $(this).children().slice(newSize)
+                      .animate({width:0}, 500, function() {
+                //remove rows
+                $("#game tbody").children().slice(newSize)
+                        .animate({opacity:0}, 500, function() {
+                  $(this).remove();
+                });
                 $(this).remove();
               });
-            });
-            //remove rows
-            $("#game tbody").children().slice(newSize).children()
-                    .fadeOut(500, function() {
-              $(this).parent().remove();
             });
           }
         }
